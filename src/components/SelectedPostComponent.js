@@ -3,29 +3,29 @@ import {Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle} from 'reac
 
 
 
-function RenderDish({dish}){
+function RenderPost({post}){
 
 		return (	
 			<div className="col-12 col-md-5">		
 				<Card>
-					<CardImg width="100%" src={dish.image} />
+					<CardImg width="100%" src={post.image} />
 					<CardBody>
-						<CardTitle>{dish.name}</CardTitle>
-						<CardText>{dish.description}</CardText>
+						<CardTitle>{post.name}</CardTitle>
+						<CardText>{post.description}</CardText>
 					</CardBody>
 				</Card>	
 			</div>						
 		);
 	}
 
-function RenderComments({dish}){
+function RenderComments({post}){
 
 		return(
 			<div className="col-12 col-md-5">
 				<Card>					
 					<CardBody>
 						<h4>Comments</h4>
-						{dish.comments.map((comment) => {
+						{post.comments.map((comment) => {
 							return (
 								<div>
 									<p>-- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
@@ -39,14 +39,14 @@ function RenderComments({dish}){
 		);
 	}
 
-	const SelectedDish = (props) => {
+	const SelectedPost = (props) => {
 
-		if (props.dish != null) {
+		if (props.post != null) {
 			return(
 				<div className="container">
 					<div className="row">
-						<RenderDish dish={props.dish}/>
-						<RenderComments dish={props.dish}/>
+						<RenderPost post={props.post}/>
+						<RenderComments post={props.post}/>
 					</div>
 				</div>
 			);	
@@ -57,4 +57,4 @@ function RenderComments({dish}){
 	}
 
 
-export default SelectedDish;
+export default SelectedPost;

@@ -1,6 +1,6 @@
 
 
-export const DISHES =
+export const POSTS =
     [
         {
         id: 0,

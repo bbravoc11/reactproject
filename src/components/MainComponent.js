@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import {Navbar,NavbarBrand} from 'reactstrap';
-import SelectedDish from './SelectedDishComponent';
-import Menu from './MenuComponent';
-import {DISHES} from '../shared/dishes';
+import SelectedPost from './SelectedPostComponent';
+import Feed from './FeedComponent';
+import {POSTS} from '../shared/posts';
+import Header from './HeaderComponent';
+import Footer from './FooterComponent';
+import Home from './HomeComponent';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 class Main extends Component {
 
@@ -10,27 +13,30 @@ class Main extends Component {
       super(props);
 
       this.state = {
-        dishes: DISHES,
-        selectedDish: null
+        posts: POSTS,
+        selectedPost: null
       };
   }
 
-  onDishSelect(dishId) {
-    this.setState({ selectedDish: dishId});
-  }
+ 
 
   render() {
+
+    const HomePage = () => {
+      return(
+          <Home/>
+        )
+    }
+       
     return (
       <div>
-       <Navbar dark color="primary">
-        <div className="container">
-          <NavbarBrand href="/">Sal de la Rueda</NavbarBrand>
-        </div>
-       </Navbar>
-       <Menu doshes={this.state.dishes}
-          Click={(dishId)=> this.onDishSelect(dishId)}/>
-       <SelectedDish 
-          dish={this.state.dishes.filter(dish => dish.id === this.state.selectedDish)[0]}/>
+        <Header/>
+        <Switch>
+          <Route path="/home" component={HomePage} />
+          <Route exact path="/feed" component={() => <Feed posts={this.state.posts}/>} />
+          <Redirect to="/home"/>
+        </Switch>      
+        <Footer/>
       </div>
     );
   }
