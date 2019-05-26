@@ -40,7 +40,7 @@ class Main extends Component {
 
     const PostWithId = ({match}) => {
     return (
-        <SelectedPost post={this.state.posts.filter((dish) => dish.id === parseInt(match.params.postId,10))[0]} 
+        <SelectedPost post={this.state.posts.filter((post) => post.id === parseInt(match.params.postId,10))[0]} 
                       comments={this.state.comments.filter( (comment) => comment.postId === parseInt(match.params.postId,10))}
         />
       )
