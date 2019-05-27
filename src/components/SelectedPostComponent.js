@@ -40,32 +40,32 @@ function RenderComments({comments}){
 		);
 	}
 
-	const SelectedPost = (props) => {
+const SelectedPost = (props) => {
 
-		if (props.post != null) {
-			return(
-				<div className="container">
-					<div className="row">
-					<Breadcrumb>
-						<BreadcrumbItem><Link to="/feed">Feed</Link></BreadcrumbItem>
-						<BreadcrumbItem active>{props.post.name}</BreadcrumbItem>
-					</Breadcrumb>
-					<div className="col-12">
-						<h3>{props.post.name}</h3>
-						<hr />
-					</div>	
+	if (props.post != null) {
+		return(
+			<div className="container">
+				<div className="row">
+				<Breadcrumb>
+					<BreadcrumbItem><Link to="/feed">Feed</Link></BreadcrumbItem>
+					<BreadcrumbItem active>{props.post.name}</BreadcrumbItem>
+				</Breadcrumb>
+				<div className="col-12">
+					<h3>{props.post.name}</h3>
+					<hr />
+				</div>	
+			</div>
+				<div className="row">
+					<RenderPost post={props.post}/>
+					<RenderComments comments={props.comments}/>
 				</div>
-					<div className="row">
-						<RenderPost post={props.post}/>
-						<RenderComments comments={props.comments}/>
-					</div>
-				</div>
-			);	
-		} else {
-			return <div></div>
-		}
-		
+			</div>
+		);	
+	} else {
+		return <div></div>
 	}
+	
+}
 
 
 export default SelectedPost;

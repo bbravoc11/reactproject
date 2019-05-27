@@ -3,7 +3,7 @@ import {Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle, Breadcrumb
 import SelectedPost from './SelectedPostComponent';
 import {Link} from 'react-router-dom';
 
-	function RenderMenuItem({post, Click}){
+	function RenderMenuItem({post}){
 		return(
 			<Card>
 				<Link to={`/menu/${post.id}`}>				
