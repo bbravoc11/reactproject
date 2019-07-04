@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import PostComment from './CommentPostComponent';
 
 
 
@@ -36,7 +37,10 @@ function RenderComments({comments}){
 						})}
 					</CardBody>
 				</Card>	
-			</div>	
+		    	<PostComment/>
+		    </div>
+
+			
 		);
 	}
 
@@ -66,6 +70,5 @@ const SelectedPost = (props) => {
 	}
 	
 }
-
 
 export default SelectedPost;

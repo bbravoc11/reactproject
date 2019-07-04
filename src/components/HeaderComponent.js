@@ -9,7 +9,7 @@ class Header extends Component {
     super(props);
     this.state= {
       isNavOpen: false,
-      inModalOpen: false,
+      isModalOpen: false,
     };
     this.toggleNav = this.toggleNav.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
@@ -32,7 +32,6 @@ class Header extends Component {
     event.preventDefault();
     this.toggleModal();
     alert("Username: "+ this.username.value + "Password: "+ this.password.value +"Remember Me: "+ this.remember.checked);  
-    console.log(this.refs.username)
   }
 
 	render(){

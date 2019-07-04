@@ -1,3 +1,5 @@
+/*cd desktop/projects/saldelarueda/react/sal*/
+
 import React, { Component } from 'react';
 import SelectedPost from './SelectedPostComponent';
 import Feed from './FeedComponent';
